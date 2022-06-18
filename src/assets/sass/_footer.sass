@@ -1,0 +1,73 @@
+.footer
+    @extend %link-font
+    font-weight: normal
+    color: $primary-background-color
+    background-color: $darker-gray
+    height: auto
+    padding: 0 0 32px 0
+    .edition
+        padding: 0 76px
+        text-align: right
+        font-weight: bold
+
+        button
+            margin: 0 0 0 8px
+            padding: 18px 24px
+            color: $primary-background-color
+            border: none
+            background-color: $secondary-color
+
+    .dark-gray
+        padding: 0 4vw
+        align-items: center
+        background-color: $footer-gray
+        display: flex
+        justify-content: space-around
+
+        .logo
+            @extend %logo-font
+            margin: -80px 0
+            font-size: 290px
+            letter-spacing: -16px
+            color: $darker-gray
+            font-weight: 100
+        .icon
+            gap: 16px
+            .icon-wrapper
+                border: 1px solid $primary-background-color
+                &:hover
+                    border: 1px solid $secondary-color
+
+    &-content
+
+        text-align: center
+        @extend %link-font
+        font-weight: 100
+
+        .conde-nast
+            @extend %logo-font
+            text-transform: uppercase
+            padding: 16px
+            font-size: 32px
+            p
+                @extend %link-font
+                font-size: 8px
+
+    &-link
+        font-size: 12px
+        margin: 6px 12px
+        display: inline-block
+        color: $primary-background-color
+        text-transform: capitalize
+
+        &-group
+            margin: 16px
+        &:hover
+            color: $dark-gray
+
+    .copyright
+        margin: 48px
+        color: $gray
+        font-size: 11px
+        background-color: $darker-gray
+// sass 的部分大部分都是排版跟细节挑整，就不说明细节了，这次用到了比较多 flex box 的用法，尤其是在更新 icon 的做法上，因为之前的方法不管如何都无法让长宽不一的 icon 们有个正圆，所以这次用了先画圆再套上 icon 的做法，而这个作法使用到 flex box 的方法让我研究了十分之久！：

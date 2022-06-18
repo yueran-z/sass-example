@@ -1,0 +1,11 @@
+// main.sass，来负责引入其他 partial 的内容，组合成完整的 css 档案
+// main.sass 中的引入顺序会影响参数的读取，所以要注意！一开始的变数文件_variable.sass 要放在最上方，之后才是引入 basic.sass 喔！
+// 之后如果有新的字型设定，就统一在 typography 设置，之后在使用 extand 来使用
+@import "_variable"
+@import "_basic"
+@import "_typography"
+@import "_header"
+@import "_dropdown"
+@import "_modal"
+@import "article"
+@import "_footer"

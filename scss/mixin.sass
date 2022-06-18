@@ -1,0 +1,37 @@
+$primary-dark: #232323
+$primary-gray: #808080
+$danger-color: #d31313
+//在这个主题下我们可以选定主题颜色，来套入 theme 的参数中，并且在不同 class 中，都填入想要套用的主题色，使用 @include 把 DarkMode 带入，可以看到，参数也可以不填写，如果不填写的话，就会带入预设值，即是 $primary-dark 的颜色。
+@mixin DarkMode($theme:$primary-dark)
+    background: $theme
+    font-size: 50px
+    margin: 10px
+
+.info
+    @include DarkMode()
+.success
+    @include DarkMode($theme: $primary-dark)
+.warning
+    @include DarkMode($theme: $primary-gray)
+.danger
+    @include DarkMode($theme: $danger-color)
+
+// 当你的 css 有需要因地制宜的时候，选 mixin 。当你的 css 是某项类别的基础或延伸时，选 extend ，
+    
+//function像是工厂，你提什么要求我就给什么，更加定制化，像是替换的意思
+// import "./App.css";
+// import "./assets/sass/mixin.sass";
+// import "./App.css";
+// import "./assets/sass/mixin.sass";
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <label class="info">this is info</label>
+//         <label class="success">this is success</label>
+//         <label class="warning">this is warning</label>
+//         <label class="danger">this is danger</label>
+//       </header>
+//     </div>
+//   );
+// }

@@ -1,0 +1,54 @@
+// _dropdown.sass
+
+.dropdown
+    position: relative
+    display: inline-block
+
+//使用 & 的方法带入 nesting 上层的名称，像是这里带入的是 dropdown，那下面的 class 就会去抓 "dropdown-content" 这个 class 的内容。
+// 这次我们加上了高度限制，并且让 overflow 的内容会 auto hide，那就可以使用 scroll bar 的方式来卷动 content 的内容检视
+    &-content
+        display: none
+        background-color: $primary-background-color
+        box-shadow: $default-box-shadow
+        margin-left: -4px
+        min-width: 120px
+        max-height: 300px
+        overflow: auto
+        padding: 4px
+        position: absolute
+    &-label:hover
+        @extend %hover-style
+
+    ul
+        padding: 8px
+        li
+            list-style-type: none
+            padding: 16px
+            &:hover
+                display: block
+                color: $secondary-color
+
+    .show
+        display: block
+    .icon
+        margin-left: 8px
+//滚动条   
+    ::-webkit-scrollbar
+        width: 5px
+
+    ::-webkit-scrollbar-track
+        background: $gray
+
+    ::-webkit-scrollbar-thumb
+        background: $dark-gray
+// 滚动条选择器
+// 我们可以使用以下的选择器来选择要修改哪些部分
+
+// ::-webkit-scrollbar：Scrollbar 本身。
+// ::-webkit-scrollbar-button：Scrollbar 上的箭头，可以点按来上下移动的按钮。
+// ::-webkit-scrollbar-thumb：滑鼠所拖动的移动手把。
+// ::-webkit-scrollbar-track：Scrollbar 的轨道，就是底下浅浅灰色的那块。
+// ::-webkit-scrollbar-track-piece：Scrollbar 中未被移动手把覆盖到的区域，跟轨道的设定类似。
+// ::-webkit-scrollbar-corner：Scrollbar 左下或右下角，有水平跟垂直 Scrollbar 时交会的点。
+// ::-webkit-resizer：交会点可以上下左右移动的按钮。
+

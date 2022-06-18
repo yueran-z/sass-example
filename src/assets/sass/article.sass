@@ -1,0 +1,171 @@
+//article.sass
+
+.ads
+    padding: 24px
+    text-align: center
+    background-color: $gray
+
+    img
+        max-height: 150px
+
+.post
+    padding: 0 5vw
+    border-top: 1px solid $primary-color
+    @extend %link-font
+    font-weight: 100
+
+    &-headline
+        width: 17vw
+        border-top: 10px solid $primary-color
+        margin: 0
+        margin-right: auto
+        padding: 0
+        font-family: $logo-font
+        font-size: 64px
+        font-weight: 200
+        text-transform: capitalize
+
+    &-img-wrapper
+        width: 90vw
+        height: 700px
+        overflow: hidden
+        margin-top: 64px
+
+    &-img
+        max-width: 90vw
+
+        &:hover
+            color: $dark-gray
+            cursor: pointer
+            transition: .1s ease
+            filter: url(#red-filter)
+
+    &-body
+        margin: 0 0 0 240px
+        border-left: 1px solid $primary-color
+        padding: 32px 200px 0 64px
+
+    &-title
+        @extend %logo-font
+        font-size: 48px
+        padding: 16px 0
+    
+    
+    &-section
+        display: flex
+        justify-content: space-between
+        gap: 2.4vw
+
+        .left-side
+            width: (100vw-10vw)/2
+            justify-content: center
+            height: 100vh
+            overflow: hidden
+
+            .overlay-content
+                color: $primary-background-color
+                position: relative
+                bottom: 410px
+                left: 0
+                padding: 20px 24px 40px
+                font-weight: bold
+
+        .right-side
+            width: (100vw-10vw)/2
+            height: 100vh
+            display: flex
+            overflow: scroll
+            gap: 2.4vw
+            overflow-x: hidden
+            scrollbar-width: none
+
+            .row
+                flex: 1
+                width: (100vw-60vw)/2
+
+    &-column
+        width: (100vw-20vw)/4
+        display: inline-block
+        overflow: hidden
+
+        &:hover
+            @extend %text-hover !optional
+
+        img
+            max-width: 100%
+            overflow: hidden
+
+        .square-img
+            width: 340px
+            height: 340px
+            overflow: hidden
+
+        .rectangle-img
+            width: 340px
+            height: 460px
+            overflow: hidden
+
+    &-title
+        @extend %logo-font
+        font-size: 48px
+        padding: 16px 0
+
+    &-subtitle
+        @extend %logo-font
+        font-size: 22px
+        padding: 4px 0
+
+    &-paper
+        position: relative
+        padding: 24px
+        margin-left: 24px
+        top: -40px
+        background-color: $primary-background-color
+
+.brown-hr
+    margin: 24px 0 12px 0
+    border-top: 5px solid #b89a6a
+    width: 40px
+    &:hover
+        border-top: 5px solid $secondary-color
+
+.more-info
+    text-align: center
+    margin: auto
+    border-top: 2px solid $gray
+
+button
+    cursor: pointer
+    border: none
+    background-color: $primary-background-color
+    margin: 8px 32px
+    padding: 32px
+    text-transform: uppercase
+    @extend %link-font
+    .red-icon
+        color: $primary-background-color
+        background-color: $secondary-color
+        border-radius: 50%
+        padding: 16px 18px
+        margin: 16px
+    &:hover
+        color: $secondary-color
+
+//post-section 是为了套用 flex 属性而包的 container
+// column 则是 section 中四篇文章的位置，透过 flew 的做法来完成平均分配栏宽，宽度则是透过 sass 的计算方式来扣掉编框比例的 vw 后所获得的宽，overflow: hidden 的部分主要是遮盖掉图片超出的范围
+// title、subtitle 的部分一样沿用之前 extend 设定过的字型
+// paper 利用 relative 属性将整体文字区块往上抬，形成覆盖的样式
+
+//这边可以看到有 @extend 去快速套用了字型！之前我们已经设定好的就不用重复编写啰～
+
+//左侧大图的宽度，扣除左右宽 5vw 后与右边分别一半，透过运算子计算出精准的宽度
+// 超过范围的图片内容使用 overflow: hidden 来遮蔽
+// overlay-content 是覆盖在谝上的文字区块，透过 position: relative 来覆盖位置到图上
+
+// 右边的宽度与上面左边设定的方式一样即可
+// 在右侧要先设定 display: flex 让内容可以使用 flex box 的效果
+// scroll 的部分是针对超出范围时，使用 scroll bar 滑动
+// gap 可以设定物件间的宽度空格
+// overflow-x: hidden 不使用水平滚动，只使用垂直滚动的方式
+// row 的 flex 1 指定此 row 只有一栏，让内容可以望下排序
+// row 的宽度也使用计算公式的方法来分配

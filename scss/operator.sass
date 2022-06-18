@@ -1,0 +1,47 @@
+//用数学的运算公式去调整 style 中的内容，让设计样式更加聪明的去适应画面。基本可运用的运算子像是 +, -, *, /, % 都可以用作 SASS 的计算。
+$deep-blue: #00beb5
+$primary-button-color: #007ea5
+$main-width: 960px
+
+.container
+    background-color: $deep-blue
+    padding: 10px
+    width: $main-width
+
+    button
+        color: $primary-button-color
+        font-size: 24px
+        padding: 16px
+        width: $main-width*7/10
+        height: 100%
+
+    .button-small
+        font-size: 12px
+        padding: 8px
+        width: $main-width*3/10
+
+//首先，订定一个固定大小的 container，练习运用运算子，排版一组 button，让他们能够依照比例排列在同一行中。
+
+// container 的大小用参数订为 960 px，如果之后有要统一更改大小，也可以从参数一次改，不用到下面其他 class 中去改 property。
+
+// 在 container 下的 button 做一些基本的设置，并且于 width 运算，将 main-width 切分为十分之七。
+
+// 另设一个小 button class 他会继承原本的 button 样式，并且有套用到这个 class 的 button 会再加上 small 的其他设定，width 的部分切分为十分之三。
+
+// App.js
+// import "./App.css";
+// import "./assets/sass/operator.sass";
+// function App() {
+//   return (
+//     <div className="App">
+//       <div className="container">
+//         <button>click me !</button>
+//         <button className="button-small">click me !</button>
+//         <button className="button-small">click me !</button>
+//         <button>click me !</button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;

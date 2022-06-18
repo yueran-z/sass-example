@@ -1,0 +1,51 @@
+// 定义 body 以及其他需要统一修改样式
+// 除了 typography 之外，我们再来将 label 的 hover 做 extend 的处理，因为他也经常被重复使用到
+body
+    font-family: $sans-font
+    text-transform: uppercase
+// 所有自行套用上 noto sans tc，并且是转换为大写的状态
+
+a
+    color: $primary-color
+    text-decoration: none
+    hover: hover
+
+a:hover
+    color: $secondary-color
+// 因为 VOGUE 的 link 都是 hover 红色的，所以我们这边也先统一设置一下
+
+.container
+    color: $primary-color
+    background-color: $primary-background-color
+// 设置 container class 来准备装上内容，并且预设字体颜色及背景色
+%hover-style
+    color: $secondary-color
+    cursor: pointer
+
+//因为 icon 再 modal 上也会用到，所以我把他抽到了 basic 来统一设定样式，这样就可以一鱼两吃！
+.icon
+    display: flex
+    width: 150px
+    gap: 8px
+    &-box,&-wrapper
+        display: flex
+        justify-content: center
+        align-items: center
+
+    &-wrapper
+        border-radius: 50%
+        overflow: hidden
+        border: 1px solid $darker-gray
+        font-size: 1.5rem
+        width: 40px
+        height: 40px
+
+        &:hover
+            @extend %icon-link-hover !optional
+
+        ::selection
+            background: $secondary-color
+// 这边先在最外框 icon 这个 class 放上 flex 的样式，让接下来套用这个 div 的内容都可以使用 flex 的属性，box, wrapper 分别放上调整位置为置中的 justify-content, align-items 来使圆形以及 icon 本人对其，wrapper 再设定上圆形的属性即可。
+
+// 关于 flex box 的介绍可以参考这里～里面有图解的介绍蛮清楚的！
+// https://css-tricks.com/snippets/css/a-guide-to-flexbox/

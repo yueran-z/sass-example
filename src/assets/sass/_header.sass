@@ -1,0 +1,55 @@
+.header
+    box-shadow: -2px 2px 5px #0000001a
+    border-top: 12px solid $primary-color
+    .top
+        padding: 24px
+    .logo
+        font-size: 100px
+        font-family: $logo-font
+    .menu
+        padding: 8px
+        position: absolute
+        right: 0px
+
+        .menu-item
+            position: relative
+            display: inline-block
+            padding: 12px 8px
+
+            .icon-menu
+                transform: scale(1.5,1)
+// 设定为垂直置中对齐文字,区分开 menu-item 的项目
+    .vl
+        border-left: 0.5px solid #b6b6b6
+        height: 30px
+        display: inline-block
+        vertical-align: middle
+        margin: 16px
+        
+    .dropdown
+        position: relative
+        display: inline-block
+
+    .sub-menu
+        border-top: 1px solid #caccce
+        padding: 20px
+        a
+            letter-spacing: 0.2em
+            padding: 8px
+            font-size: 12px
+            font-weight: 900
+
+// 先把基本的内容摆好，接下来会来针对每个细项去做 style 的调整，
+// top 的部分是 logo 和 membership 的区域，为了跟 breadcrumb 分开而设
+// menu 区域包含国家选择以及 membership 以及选单 hamberger
+// dropdown list style 之后设定，这边先给他他一个 inline-block 乖乖排队
+// sub-menu 的部分则是设定如 VOGUE 官方的风格，拉开字距以及加粗字型，上方加上 border 以做区隔
+
+// 转换
+// transform 的设定多样，可以让你针对物件去做变形，MDN 也有列出变形的样式例子，可以去玩玩看～
+
+// 变换 - CSS | MDN: https://developer.mozilla.org/zh-TW/docs/Web/CSS/transform
+// // 规模
+// 在 transform 中的其中一种变化设定值 —— scale，则可与用作修改元素的大小，并且针对特定方向做缩放，我们就是利用上下缩小，左右拉宽的方式做缩放，来制造扁长的 icon-menu
+
+// scale (x 轴，y 轴)，transform: scale (2, 0.5) 也可以写成 scaleX (2) scaleY (0.5)

@@ -1,0 +1,77 @@
+// 打开 menu hamberger 后的 full screen modal，里面包含了所有 VOGUE links
+.modal
+    position: fixed
+    top: 0
+    left: 0
+    display: none
+    width: 100%
+    height: 100%
+    background-color: $primary-color
+    color: $primary-background-color
+
+.modal-button:hover
+    @extend %hover-style
+
+.show
+    display: block
+.modal-header
+  .close-button
+      margin: 8px
+      padding: 16px
+      position: fixed
+      top: 0
+      right: 0
+      cursor: pointer
+//因为 content 中有三个栏位，所以我们要再另外设置一个 modal column 来分装这三个栏位
+.modal-column
+    vertical-align: top
+    border-top: 1.5px solid $primary-background-color
+    width: 29vw
+    display: inline-block
+    margin: 16px
+    a
+        padding: 16px 0
+        display: block
+        color: $primary-background-color
+        &:hover
+            color: $secondary-color
+
+    hr
+        border: none
+        height: 1px
+        color: $darker-gray
+        background-color: $darker-gray
+
+    .logo-font
+        font-family: $logo-font
+        font-size: 48px
+        font-weight: 300
+        text-transform: capitalize
+    .follow-us
+        color: $dark-gray
+        text-transform: uppercase
+        border-top: 1px solid $primary-background-color
+        padding-top: 8px
+        margin-top: 32px
+
+    .social-media
+        width: 20px
+        height: 20px
+        display: inline-block
+        border-radius: 60px
+        border: 1px solid $darker-gray
+        padding: 13px
+        margin: 13px 13px 13px 0
+
+        &:hover
+            color: $secondary-color
+            border: 1px solid $secondary-color
+            cursor: pointer
+            transition: 0.3s
+// vertical-align: top - 让 column 们是靠上对齐的
+// width: 29vw - vw 是指当前画面的宽度，而 29 就是画面宽度的 29%，针对三栏简易的用这样去分配宽度
+// display: inline-block - 让 column 们可以并肩并行！
+
+// a - 因为自行预设是黑色，所以我们要针对 modal 下的 a 在另外进行样式设定，包含 hover 时的颜色，也可以顺便设定 padding 让排版看起来更整齐
+// hr - 官方是使用 ul li 的方式来做分隔线，但我觉得有点麻烦，所以直接使用 hr 来做分隔
+// .logo-font - 这个部分是，中间那组 column 的字型是使用 logo 的字型，针对这部分也个别做 class 去设定
