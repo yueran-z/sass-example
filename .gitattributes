@@ -1,1 +1,3 @@
 *.html linguist-language=sass
+*.sass linguist-language=sass
+*.vue linguist-language=vue
